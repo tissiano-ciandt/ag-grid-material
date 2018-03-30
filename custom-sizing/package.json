@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ag-grid": "^13.3.0",
+    "ag-grid": "^17.0.0",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "svg-colorize-loader": "^0.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",

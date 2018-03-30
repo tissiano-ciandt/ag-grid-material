@@ -28,7 +28,7 @@ module.exports = {
                 test: /\.(svg)$/,
                 use: [
                     { loader: 'url-loader', options: { limit: 8192 } },
-                    { loader: require.resolve('ag-grid/src/styles/svg-loader') } // necessary for the icon colors
+                    { loader: 'svg-colorize-loader', options: {} }
                 ]
             }
         ],
