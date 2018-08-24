@@ -1,21 +1,23 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { IAfterGuiAttachedParams, ICellEditorParams } from "ag-grid/main";
-import { AgEditorComponent, } from "ag-grid-angular";
-import { MdInput } from "@angular/material";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ICellEditorParams} from 'ag-grid/main';
+import {AgEditorComponent,} from 'ag-grid-angular';
+import {MatInput} from '@angular/material';
 
 @Component({
-  selector: 'app-ag-grid-material-text-editor',
-  templateUrl: './ag-grid-material-text-editor.component.html',
-  styleUrls: ['./ag-grid-material-text-editor.component.scss']
+    selector: 'app-ag-grid-material-text-editor',
+    templateUrl: './ag-grid-material-text-editor.component.html',
+    styleUrls: ['./ag-grid-material-text-editor.component.scss']
 })
 export class AgGridMaterialTextEditorComponent implements OnInit, AgEditorComponent {
     params: ICellEditorParams;
     private value: string;
-    @ViewChild('input', {read: MdInput}) input;
+    @ViewChild('input', {read: MatInput}) input;
 
-    constructor() { }
+    constructor() {
+    }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
     ngAfterViewInit() {
         this.input.focus();
@@ -49,9 +51,4 @@ export class AgGridMaterialTextEditorComponent implements OnInit, AgEditorCompon
     getValue(): string {
         return this.value;
     }
-
-    onBlur(): void {
-        this.params.stopEditing();
-    }
-
 }

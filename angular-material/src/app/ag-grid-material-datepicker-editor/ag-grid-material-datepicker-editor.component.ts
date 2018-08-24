@@ -1,35 +1,37 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { IAfterGuiAttachedParams, ICellEditorParams } from "ag-grid/main";
-import { AgEditorComponent, } from "ag-grid-angular";
-import { MdDatepicker, MdDatepickerToggle } from "@angular/material";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ICellEditorParams} from 'ag-grid/main';
+import {AgEditorComponent,} from 'ag-grid-angular';
+import {MatDatepicker} from '@angular/material';
 
 @Component({
-  selector: 'app-ag-grid-material-datepicker-editor',
-  template: `
-    <md-input-container>
-      <input mdInput [mdDatepicker]="picker" [(ngModel)]="value">
-      <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-    </md-input-container>
-    <md-datepicker #picker (selectedChanged)="onSelectChange(e)"></md-datepicker>
-  `, 
-  styles: [
-      `
-.mat-input-container {
-    margin-top: -16px;
-}
+    selector: 'app-ag-grid-material-datepicker-editor',
+    template: `
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="value">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        </mat-form-field>
+        <mat-datepicker #picker (selectedChanged)="onSelectChange(e)"></mat-datepicker>
+    `,
+    styles: [
+            `
+            .md-form-field {
+                margin-top: -16px;
+            }
 
-      `
-  ]
+        `
+    ]
 })
 export class AgGridMaterialDatepickerEditorComponent implements OnInit, AgEditorComponent {
     columnWidth: string;
     params: ICellEditorParams;
     private value: string;
-    @ViewChild('picker', {read: MdDatepicker}) picker: MdDatepicker<Date>;
+    @ViewChild('picker', {read: MatDatepicker}) picker: MatDatepicker<Date>;
 
-    constructor() { }
+    constructor() {
+    }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
     ngAfterViewInit() {
         this.picker.open();
@@ -57,8 +59,8 @@ export class AgGridMaterialDatepickerEditorComponent implements OnInit, AgEditor
     }
 
     onSelectChange(e): void {
-        setTimeout(function() {
-            this.params.stopEditing()
+        setTimeout(function () {
+            this.params.stopEditing();
         }.bind(this));
     }
 
