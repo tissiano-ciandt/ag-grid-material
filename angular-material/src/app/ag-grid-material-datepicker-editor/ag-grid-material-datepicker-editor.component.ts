@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ICellEditorParams} from 'ag-grid/main';
-import {AgEditorComponent,} from 'ag-grid-angular';
+import {AgEditorComponent} from 'ag-grid-angular';
 import {MatDatepicker} from '@angular/material';
 
 @Component({
