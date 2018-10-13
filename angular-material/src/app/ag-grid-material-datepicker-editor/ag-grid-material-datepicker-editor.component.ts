@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {ICellEditorParams} from 'ag-grid/main';
 import {AgEditorComponent} from 'ag-grid-angular';
 import {MatDatepicker} from '@angular/material';
@@ -21,7 +21,7 @@ import {MatDatepicker} from '@angular/material';
         `
     ]
 })
-export class AgGridMaterialDatepickerEditorComponent implements OnInit, AgEditorComponent {
+export class AgGridMaterialDatepickerEditorComponent implements OnInit, AgEditorComponent, AfterViewInit {
     columnWidth: string;
     params: ICellEditorParams;
     private value: string;
